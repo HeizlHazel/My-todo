@@ -1,0 +1,52 @@
+.Header {
+  /* background: #90b3ee; */
+  padding: 30px 20px;
+}
+
+.header-content {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.header-content > button {
+  align-self: flex-end;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 6px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.header-content > button:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.quote-section {
+  width: 60%;
+  margin: 0 auto;
+  padding: 15px 0;
+  /* border-top: 1px solid rgba(255, 255, 255, 0.15); */
+  text-align: center;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+.quote-text {
+  font-size: 12px;
+  text-align: center;
+  line-height: 1.5;
+  margin: 0 0 5px 0;
+  /* color: rgba(255, 255, 255, 0.9); */
+}
+
+.quote-author {
+  font-size: 10px;
+  margin: 0;
+  /* color: rgba(255, 255, 255, 0.6); */
+  text-align: center;
+}
