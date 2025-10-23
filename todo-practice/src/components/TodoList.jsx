@@ -1,6 +1,7 @@
 import { useContext, useReducer, useState } from "react";
 import "./TodoList.css";
 import { TodoDispatchContext, TodoStateContext } from "../App";
+import { formatDate } from "../utils/dateUtils";
 
 // 초기 상태
 const initialState = {
@@ -33,23 +34,14 @@ function reducer(state, action) {
 
 const TodoList = () => {
   const { selectedDate, todos } = useContext(TodoStateContext);
-  const { setTodos } = useContext(TodoDispatchContext);
+  const { dispatch } = useContext(TodoDispatchContext);
 
   // useReducer로 여러 상태를 하나로 관리
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, localDispatch] = useReducer(reducer, initialState);
   const { inputValue, openMenuId, editingId, editValue } = state;
 
-  // Date 객체를 'YYYY-MM-DD' 형식으로 변환
-  const formatDate = (date) => {
-    if (!date) return "";
-    return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(
-      2,
-      "0"
-    )}-${String(date.getDate()).padStart(2, "0")}`;
-  };
   // 선택된 날짜를 문자열로 변환
   const dateStr = formatDate(selectedDate);
-
   // 선택된 날짜의 할 일만 필터링
   const todosForDate = todos.filter((todo) => todo.date === dateStr);
 
@@ -58,70 +50,59 @@ const TodoList = () => {
     // 입력 값이 비어있거나 날짜 선택되지 않았으면 종료
     if (!inputValue.trim() || !selectedDate) return;
     // 새로운 할 일 객체 생성
-    const newTodo = {
-      id: Date.now(),
-      date: dateStr,
-      text: inputValue,
-      completed: false,
-    };
-
-    setTodos([...todos, newTodo]);
-    dispatch({ type: "UPDATE", payload: { inputValue: "" } });
-    // setInputValue(""); // 입력 필드 초기화
+    dispatch({
+      type: "ADD",
+      payload: {
+        id: Date.now(),
+        date: dateStr,
+        text: inputValue,
+        completed: false,
+      },
+    });
+    localDispatch({ type: "UPDATE", payload: { inputValue: "" } });
   };
 
   // 할 일 완료/미완료 토글
   const handleToggleTodo = (id) => {
-    setTodos(
-      todos.map((todo) =>
-        // 해당 id의 todo만 completed 반전
-        todo.id === id ? { ...todo, completed: !todo.completed } : todo
-      )
-    );
+    dispatch({ type: "TOGGLE", payload: id });
   };
 
+  // UI 상태는 localDispatch, todos 업데이트는 dispatch
   // 메뉴 토글
   const handleToggleMenu = (id) => {
-    dispatch({
+    localDispatch({
       type: "UPDATE",
       payload: { openMenuId: openMenuId === id ? null : id },
     });
-    // setOpenMenuId(openMenuId === id ? null : id);
   };
 
   // 수정 시작
   const handleStartEdit = (todo) => {
-    dispatch({ type: "START_EDIT", payload: { id: todo.id, text: todo.text } });
-    // setEditingID(todo.id);
-    // setEditValue(todo.text);
-    // setOpenMenuId(null);
+    localDispatch({
+      type: "START_EDIT",
+      payload: { id: todo.id, text: todo.text },
+    });
   };
 
   // 수정 완료
   const handleSaveEdit = (id) => {
     if (!editValue.trim()) return;
-    setTodos(
-      todos.map((todo) =>
-        todo.id === id ? { ...todo, text: editValue } : todo
-      )
-    );
-    dispatch({ type: "RESET_EDIT" });
-    // setEditingID(null);
-    // setEditValue("");
+    dispatch({
+      type: "UPDATE",
+      payload: { id, text: editValue },
+    });
+    localDispatch({ type: "RESET_EDIT" });
   };
 
   // 수정 취소
   const handleCancelEdit = () => {
-    dispatch({ type: "RESET_EDIT" });
-    // setEditingID(null);
-    // setEditValue("");
+    localDispatch({ type: "RESET_EDIT" });
   };
 
   // 삭제
   const handleDeleteTodo = (id) => {
-    setTodos(todos.filter((todo) => todo.id !== id));
-    dispatch({ type: "UPDATE", payload: { openMenuId: null } });
-    // setOpenMenuId(null);
+    dispatch({ type: "DELETE", payload: id });
+    localDispatch({ type: "UPDATE", payload: { openMenuId: null } });
   };
 
   return (
@@ -141,7 +122,7 @@ const TodoList = () => {
               type="text"
               value={inputValue}
               onChange={(e) =>
-                dispatch({
+                localDispatch({
                   type: "UPDATE",
                   payload: { inputValue: e.target.value },
                 })
@@ -170,7 +151,7 @@ const TodoList = () => {
                       type="text"
                       value={editValue}
                       onChange={(e) =>
-                        dispatch({
+                        localDispatch({
                           type: "UPDATE",
                           payload: { editValue: e.target.value },
                         })
