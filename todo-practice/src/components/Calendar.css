@@ -1,4 +1,163 @@
 .Calendar {
+  background-color: white;
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.Calendar .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.Calendar .header button {
+  background: rgba(196, 194, 194, 0.15);
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #4b5563;
+  transition: all 0.2s;
+}
+
+.Calendar .header button:hover {
+  background-color: #f3f4f68a;
+}
+
+.Calendar .btn-container {
+  display: flex;
+  gap: 10px;
+  margin-right: 20px;
+}
+
+.Calendar .header .today-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  height: 36px;
+  min-width: 50px; /* 최소 너비 설정 */
+  border-radius: 6px;
+  /* background-color: #e5e7eb; */
+  /* color: white; */
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+  margin-left: auto;
+  margin-right: 10px;
+  white-space: nowrap; /* 텍스트 줄바꿈 방지 */
+}
+
+.Calendar .header .today-btn:hover {
+  background-color: #1f2937;
+  color: white;
+}
+
+.Calendar .header span {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1f2937;
+  margin-left: 20px;
+}
+
+.Calendar .weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); /* 7칸 균등 분할 */
+  gap: 4px;
+}
+
+.Calendar .weekday {
+  text-align: center;
+  padding: 12px 0;
+  font-weight: 600;
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.Calendar .weekday:first-child {
+  color: #ef4444;
+}
+
+.Calendar .weekday:last-child {
+  color: #3b82f6;
+}
+
+.Calendar .dates {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); /* 7일 1주 */
+  gap: 4x;
+}
+
+.Calendar .date-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 12px 0;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 14px;
+  color: #1f2937;
+  position: relative;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  margin: auto;
+}
+
+.Calendar .date-cell:hover {
+  background: #f3f4f6;
+}
+
+.Calendar .date-cell.selected {
+  background: #1f2937;
+  color: whitesmoke;
+  font-weight: 600;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  margin: auto;
+}
+
+.Calendar .date-cell.has-todo::after {
+  content: "";
+  position: absolute;
+  bottom: 4px;
+  width: 6px;
+  height: 6px;
+  background-color: #ffa1eb;
+  border-radius: 50%;
+}
+
+.Calendar .date-cell.selected.has-todo::after {
+  background-color: white;
+}
+
+.Calendar .date-cell.today {
+  background: #f3f4f6;
+  font-weight: bold;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  margin: auto;
+}
+
+.Calendar .date-cell.today.selected {
+  background: #1f2937;
+  color: whitesmoke;
+  font-weight: 600;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  margin: auto;
+}
+
+/* .Calendar {
   width: 100%;
   max-width: 450px;
   margin: 20px auto;
@@ -103,4 +262,4 @@
 
 .selected {
   color: white !important;
-}
+} */
