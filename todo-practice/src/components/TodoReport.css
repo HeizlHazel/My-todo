@@ -1,0 +1,23 @@
+.TodoReport {
+  padding: 20px;
+}
+
+.TodoReport .header {
+  display: flex;
+  gap: 20px;
+  padding: 10px 0px;
+  align-items: center;
+}
+
+.TodoReport button {
+  background-color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 10px;
+  cursor: pointer;
+}
+
+.TodoReport .content {
+  width: 300px;
+  height: 300px;
+}
