@@ -1,0 +1,148 @@
+.TodoList {
+  background-color: white;
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.TodoList h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 16px;
+  color: #1f2937;
+}
+
+.TodoList .input-container {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.TodoList .input-container input {
+  flex: 1;
+  padding: 12px 16px;
+  border: none;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.TodoList .input-container input:focus {
+  border-bottom: 1px solid #9ca3af65;
+}
+
+.TodoList .edit-input {
+  flex: 1;
+  background-color: #f3f4f68a;
+  padding: 12px 16px;
+  border: none;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* .TodoList .input-container button {
+  padding: 12px 24px;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+} */
+
+.TodoList .todo-items {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.TodoList .todo-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.TodoList .todo-item:hover {
+  background-color: #f3f4f68a;
+}
+
+.TodoList .todo-item input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.TodoList .todo-item .todo-text {
+  flex: 1;
+  color: #1f2937;
+}
+
+.TodoList .todo-item .todo-text.completed {
+  text-decoration: line-through;
+  color: #9ca3af;
+}
+
+.TodoList .todo-item button {
+  padding: 6px 12px;
+  color: black;
+  background-color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.TodoList .todo-item button:hover {
+  background-color: #f3f4f68a;
+}
+
+/* 메뉴 버튼 */
+.menu-btn {
+  padding: 4px 8px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #6b7280;
+  transition: color 0.2s;
+}
+
+.menu-btn:hover {
+  color: #1f2937;
+}
+
+/* 수정/삭제 버튼 */
+.edit-btn {
+  padding: 6px 12px;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.edit-btn:hover {
+  background-color: #2563eb;
+}
+
+.delete-btn {
+  padding: 6px 12px;
+  background-color: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.delete-btn:hover {
+  background-color: #dc2626;
+}
