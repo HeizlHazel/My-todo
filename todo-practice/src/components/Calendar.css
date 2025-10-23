@@ -90,7 +90,7 @@
 .Calendar .dates {
   display: grid;
   grid-template-columns: repeat(7, 1fr); /* 7일 1주 */
-  gap: 4x;
+  gap: 4px 0px;
 }
 
 .Calendar .date-cell {
