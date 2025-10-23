@@ -1,17 +1,19 @@
 .Content {
-  max-width: 450px;
-  margin: 30px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 25px;
 }
 
-.search-container {
+/* .search-container {
   display: flex;
   gap: 10px;
   background: white;
   padding: 15px 20px;
   border-radius: 10px;
-}
+} */
 
-.Content input {
+/* .Content input {
   flex: 1;
   padding: 10px 16px;
   border: 1px solid rgba(107, 114, 128, 0.05);
@@ -30,9 +32,9 @@
 
 .Content input::placeholder {
   color: #9ca3af;
-}
+} */
 
-.Content button {
+/* .Content button {
   background: rgba(107, 114, 128, 0.05);
   color: #4b5563;
   border: 1px solid rgba(107, 114, 128, 0.15);
@@ -52,4 +54,50 @@
 
 .Content button:active {
   transform: translateY(0);
+} */
+
+.Content button {
+  align-self: flex-end;
+  background: rgba(196, 194, 194, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 6px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  transition: all 0.2s;
+  margin-right: 17px;
+}
+
+.Content button:hover {
+  background-color: #f3f4f68a;
+}
+
+.Weather {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 5px 10px;
+  border-radius: 8px;
+  width: fit-content;
+  backdrop-filter: blur(4px); /* 배경 흐림 효과 */
+}
+
+.weather-icon {
+  width: 30px;
+  height: 30px;
+}
+
+.weather-temp {
+  font-weight: bold;
+}
+
+.weather-message {
+  font-size: 13px;
+  color: #555;
+  text-align: center;
+  margin-top: 6px;
+  line-height: 1.4;
 }
