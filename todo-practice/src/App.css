@@ -20,9 +20,3 @@ body {
   flex: 1;
   padding-bottom: 40px;
 }
-
-.weather-wrapper {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
