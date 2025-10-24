@@ -1,15 +1,18 @@
 .TodoReport {
-  padding: 20px;
+  background-color: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-sizing: border-box;
 }
 
 .TodoReport .header {
   display: flex;
-  gap: 20px;
-  padding: 10px 0px;
   align-items: center;
+  gap: 10px;
+  margin-bottom: 30px;
 }
 
-.TodoReport button {
+.TodoReport .header-btn {
   background-color: white;
   border: none;
   border-radius: 5px;
@@ -18,6 +21,168 @@
 }
 
 .TodoReport .content {
-  width: 300px;
-  height: 300px;
+  padding: 20px 0;
+}
+
+.TodoReport .month-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 0 20px;
+}
+
+.TodoReport .month-navigation span {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.TodoReport .month-navigation button {
+  background: rgba(196, 194, 194, 0.15);
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #4b5563;
+  transition: all 0.2s;
+}
+
+.TodoReport .month-navigation button:hover {
+  background-color: #f3f4f68a;
+}
+
+.TodoReport .btn-container {
+  display: flex;
+  gap: 10px;
+  margin-right: 20px;
+}
+
+.TodoReport .stats-summary {
+  background: white;
+  border-bottom: 1px solid #4b556357;
+  padding: 20px;
+}
+
+.main-stat {
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.main-stat-label {
+  font-size: 14px;
+  opacity: 0.9;
+  margin-bottom: 8px;
+}
+
+.main-stat-value {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.main-stat-total {
+  font-size: 16px;
+  opacity: 0.85;
+}
+
+.progress-container {
+  background: white;
+  padding: 28px 24px;
+  border-radius: 12px;
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.progress-label {
+  font-size: 14px;
+  color: #666;
+  font-weight: 500;
+}
+
+.progress-percentage {
+  font-size: 18px;
+  font-weight: 700;
+  color: rgb(164, 120, 100);
+}
+
+.progress-bar-bg {
+  width: 100%;
+  height: 24px;
+  background: #f0f0f0;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: rgb(164, 120, 100);
+  border-radius: 12px;
+  transition: width 0.6s ease;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 10px;
+}
+
+.progress-text {
+  font-size: 11px;
+  color: white;
+  font-weight: 600;
+}
+
+/* 요일별 통계 */
+.weekday-stats {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.day-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.day-label {
+  font-size: 11px;
+  color: #999;
+  font-weight: 500;
+}
+
+.day-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 600;
+  background: #f5f5f5;
+  color: #999;
+}
+
+.day-circle.has-complete {
+  background: rgb(164, 120, 100);
+  color: white;
+}
+
+.TodoReport .no-data {
+  text-align: center;
+  padding: 60px 20px;
+  color: #999;
+  font-size: 16px;
 }
