@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 
 const Quote = () => {
   const [quote, setQuote] = useState({ content: "", author: "" });
+  // CORS 오류로 막아둠
   //  const [loading, setLoading] = useState(true);
 
   //   useEffect(() => {
