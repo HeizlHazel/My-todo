@@ -107,12 +107,6 @@ const TodoList = () => {
 
   return (
     <div className="TodoList">
-      {/* <h4>
-        {selectedDate
-          ? `${selectedDate.getMonth() + 1}월 ${selectedDate.getDate()}일`
-          : "날짜를 선택하세요"}
-      </h4> */}
-
       {/* 날짜 선택되었을 때만 입력 폼과 할 일 목록 표시 */}
       {selectedDate && (
         <>
@@ -130,7 +124,6 @@ const TodoList = () => {
               onKeyPress={(e) => e.key === "Enter" && handleAddTodo()}
               placeholder="할 일을 입력하세요"
             />
-            {/* <button onClick={handleAddTodo}>추가</button> */}
           </div>
 
           {/* 할 일 목록 */}
