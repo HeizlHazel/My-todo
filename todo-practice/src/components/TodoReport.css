@@ -57,13 +57,13 @@
 .TodoReport .btn-container {
   display: flex;
   gap: 10px;
-  margin-right: 20px;
 }
 
 .TodoReport .stats-summary {
   background: white;
   border-bottom: 1px solid #4b556357;
   padding: 20px;
+  margin: 5px 20px;
 }
 
 .main-stat {

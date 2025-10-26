@@ -32,7 +32,6 @@
 .Calendar .btn-container {
   display: flex;
   gap: 10px;
-  margin-right: 20px;
 }
 
 .Calendar .header .today-btn {
