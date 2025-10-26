@@ -44,11 +44,6 @@ const Content = () => {
   return (
     <div className="Content">
       <div className="Weather">
-        {/* <div className="search-container">
-        <input placeholder="할 일 검색하기" />
-        <button>🔍</button>
-      </div> */}
-
         {/* 날씨 아이콘 */}
         <img
           src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
