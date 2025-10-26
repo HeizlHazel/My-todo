@@ -5,15 +5,16 @@ import { formatDate } from "../utils/dateUtils";
 
 // 초기 상태
 const initialState = {
-  inputValue: "",
-  openMenuId: null,
-  editingId: null,
-  editValue: "",
+  inputValue: "", // 새 할 일 입력값
+  openMenuId: null, // 현재 열려있는 메뉴 id
+  editingId: null, // 현재 수정중인 할 일의 id
+  editValue: "", // 수정 입력창의 값
 };
 
 function reducer(state, action) {
   switch (action.type) {
     case "UPDATE":
+      // 여러 상태를 한 번에 업데이트할 때 사용
       return { ...state, ...action.payload };
 
     case "START_EDIT":
@@ -33,7 +34,11 @@ function reducer(state, action) {
 }
 
 const TodoList = () => {
+  // TodoStateContext: App에서 제공한 전역 데이터 저장소
+  // 선택된 날짜와 전체 할 일 목록 가져옴
   const { selectedDate, todos } = useContext(TodoStateContext);
+  // TodoDispatchContext: 전역 상태를 바꾸는 함수를 내려줌
+  // todo 데이터 조작 이 곳을 통해 처리
   const { dispatch } = useContext(TodoDispatchContext);
 
   // useReducer로 여러 상태를 하나로 관리
@@ -59,6 +64,7 @@ const TodoList = () => {
         completed: false,
       },
     });
+    // 입력창 초기화
     localDispatch({ type: "UPDATE", payload: { inputValue: "" } });
   };
 

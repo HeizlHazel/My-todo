@@ -110,7 +110,9 @@ const Quote = () => {
     ];
 
     const today = new Date();
+
     // 날짜 기반으로 매일 같은 명언
+    // 올해의 몇 번째 날인지 계산 1월1일: 1, 12월 31일: 365
     const dayOfYear = Math.floor(
       (today - new Date(today.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24)
     );

@@ -4,7 +4,7 @@ import { useContext, useState } from "react";
 
 const Calendar = () => {
   // 전역 상태(context)에서 필요한 값 불러오기
-  const { selectedDate, todos } = useContext(TodoStateContext); // 현재 선택된 날짜
+  const { selectedDate, todos } = useContext(TodoStateContext); // 현재 선택된 날짜와 todo 목록
   const { setSelectedDate } = useContext(TodoDispatchContext); // 날짜 변경 함수
 
   // 현재 달 기준으로 달력을 그리기 위한 state
@@ -56,9 +56,11 @@ const Calendar = () => {
     return todos.some((todo) => todo.date === dateStr);
   };
 
+  // 오늘인지 확인하는 함수
   const isToday = (date) => {
     if (!date) return false;
     const today = new Date();
+    // 현재 날짜를 새로 생성해서 비교
     return (
       date === today.getDate() &&
       month === today.getMonth() &&
@@ -97,6 +99,7 @@ const Calendar = () => {
       </div>
 
       <div className="dates">
+        {/* dates 배열 map으로 돌려서 각 셀 랜더링 */}
         {dates.map((date, i) => {
           // 현재 선택된 날짜냐
           const isSelected =
@@ -109,6 +112,7 @@ const Calendar = () => {
           return (
             <div
               key={i}
+              // css 클래스 상태에 따라 동적으로 조합
               className={`date-cell ${isSelected ? "selected" : ""} ${
                 hasTodos(date) ? "has-todo" : ""
               } ${isToday(date) ? "today" : ""}`}
